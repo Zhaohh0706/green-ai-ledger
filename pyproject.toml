@@ -1,0 +1,25 @@
+[project]
+name = "ledger"
+version = "0.1.0"
+description = "Measure the energy your compute uses, with the grid factor pinned rather than guessed from your IP"
+requires-python = ">=3.11"
+authors = [{ name = "Haohang Zhao" }]
+license = { text = "MIT" }
+dependencies = ["codecarbon>=3.0", "typer>=0.9"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+ledger = "ledger.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
