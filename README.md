@@ -80,7 +80,7 @@ absolute path otherwise carries the user's name into a public file.
 ## What it measured
 
 Three runs across two of my repositories
-([pv-wind-power-forecast](https://github.com/Zhaohh0706/pv-wind-power-forecast),
+(pv-wind-power-forecast,
 [aiwp-china-verification](https://github.com/Zhaohh0706/aiwp-china-verification)),
 on an M1 Pro laptop, Guangdong grid:
 
@@ -131,6 +131,5 @@ tests/         16 tests
 
 ## Related repositories
 
-- [pv-wind-power-forecast](https://github.com/Zhaohh0706/pv-wind-power-forecast) — PV and wind forecasting, priced against Chinese grid-code assessment
 - [aiwp-china-verification](https://github.com/Zhaohh0706/aiwp-china-verification) — fixed-lead verification of physics and AI weather models at Chinese stations
 - [cn-weather-cube](https://github.com/Zhaohh0706/cn-weather-cube) — point weather with units attached and sources named
