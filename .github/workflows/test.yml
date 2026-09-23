@@ -1,0 +1,25 @@
+name: tests
+# This package tells people their carbon number is wrong because a dependency guessed their grid. It has no business shipping a dependency set that does not install. Clean environment, pyproject.toml only, every push.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions: { contents: read }
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]   # the floor this repository claims, and current
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with: { python-version: "${{ matrix.python-version }}" }
+      - name: install the way a stranger would
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+      - run: python -m pytest -q
